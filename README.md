@@ -1,5 +1,7 @@
 # < Can Love be predictable? >
 
+Please Check the final_project.md for our full markdown!
+
 ### Groups
 * < Lieke, student ID1 >
 * < Felix, 106266012 >
