@@ -203,12 +203,12 @@ roc_class <- roc(test$match, preds.per)
 #' Since we are trying to predict a match between two dating persons, we decided that a high accuracy is not important, but that a high Sensitivty is more relevant, since going to a nother date with a person you don't like is not as bad as missing out on a pontential partner. Here is the density plot for our latest fold.
 ## ------------------------------------------------------------------------
 test$preds_score = preds.per
-dual_density <- ggplot(test) + geom_density(aes(x = preds.per, color = match)) + labs(x = "Prediction Score",
-                                                                                      y = "Density")
-#plot(dual_density)
+dual_density <- ggplot(test) + geom_density(aes(x = preds.per, color = match), size = 2) + labs(x = "Prediction Score",
+                   y = "Density", color = "Match") +   theme(text = element_text(size=18))
+plot(dual_density)
 
 
-#'   
+  #'   
 #' We calculate the average threshhold which maximize our Sensitivity and Specificity.
 ## ------------------------------------------------------------------------
 threshhold = as.numeric(optim.thresh(test$match, preds.per )['max.sensitivity+specificity'])
