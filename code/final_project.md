@@ -1,6 +1,6 @@
 Final Project Data Science
 ================
-Lieke, Felix
+Lieke van Uden, Felix Ude
 January 15, 2019
 
 We begin by loading our libraries.
