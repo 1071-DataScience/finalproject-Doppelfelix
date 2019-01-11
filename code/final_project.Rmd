@@ -1,6 +1,6 @@
 ---
 title: "Final Project Data Science"
-author: "Lieke, Felix"
+author: "Lieke van Uden, Felix Ude"
 date: "January 15, 2019"
 output: rmarkdown::github_document
 ---
