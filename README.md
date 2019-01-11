@@ -1,10 +1,10 @@
-# < Can Love be predictable? >
+#  Can Love be predictable?
 
 Please Check the final_project.md for our full markdown!
 
 ### Groups
-* < Lieke, student ID1 >
-* < Felix, 106266012 >
+*  Lieke van Uden,  107300601
+*  Felix Ude, 106266012
 
 
 ### Goal
