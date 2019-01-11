@@ -1,17 +1,19 @@
-# < Title of your final project >
+# < Can Love be predictable? >
+
+Please Check the final_project.md for our full markdown!
 
 ### Groups
-* < name, student ID1 >
-* < name, student ID2 >
-* < name, student ID3 >
+* < Lieke, student ID1 >
+* < Felix, 106266012 >
+
 
 ### Goal
-A breif introduction about your project, i.e., what is your goal?
+A brief introduction about your project, i.e., what is your goal?
 
 ### demo 
-You should provide an example commend to reproduce your result
+There is a script file in \code for you to check out. The skip flag is for skipping the cross-validation process and just use the parameters we found, since the process is very time consuming. 
 ```R
-Rscript code/your_script.R --input data/training --output results/performance.tsv
+Rscript code/final_project_script.R --input input.csv --output output.csv --skip 1
 ```
 * any on-line visualization
 
