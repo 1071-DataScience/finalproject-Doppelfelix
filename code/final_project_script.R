@@ -197,14 +197,15 @@ auc_value <- auc(test$match, preds.per)
 print(auc_value)
 
 roc_class <- roc(test$match, preds.per)
-plot(roc_class)
+#plot(roc_class)
 
 #'   
 #' Since we are trying to predict a match between two dating persons, we decided that a high accuracy is not important, but that a high Sensitivty is more relevant, since going to a nother date with a person you don't like is not as bad as missing out on a pontential partner. Here is the density plot for our latest fold.
 ## ------------------------------------------------------------------------
 test$preds_score = preds.per
-dual_density <- ggplot(test) + geom_density(aes(x = preds.per, color = match))
-plot(dual_density)
+dual_density <- ggplot(test) + geom_density(aes(x = preds.per, color = match)) + labs(x = "Prediction Score",
+                                                                                      y = "Density")
+#plot(dual_density)
 
 
 #'   
@@ -233,9 +234,10 @@ as.matrix(results, what = "classes")
 
 
 if (grepl(".csv",output) == FALSE){
-  out <-  paste(output,".csv",sep = "") 
+  output <-  paste(output,".csv",sep = "") 
 }
+
 write.table(as.data.frame(cm$table), file=output, row.names = F, quote = F, sep = ",")
-write.table(as.matrix(cm, what = "overall"), file=output, row.names = T, quote = F, sep = ",", append = TRUE)
-write.table(as.matrix(cm, what = "classes"), file=output, row.names = T, quote = F, sep = ",", append = TRUE)
+write.table(round(as.matrix(cm, what = "overall"), digits = 2), file=output, row.names = T, quote = F, sep = ",", append = TRUE)
+write.table(round(as.matrix(cm, what = "classes"), digits = 2),file=output, row.names = T, quote = F, sep = ",", append = TRUE)
 print("All Done!")
