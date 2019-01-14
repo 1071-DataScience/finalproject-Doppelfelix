@@ -23,7 +23,7 @@ For a full markdown see /final_project.md
 ## Folder organization and its related information
 
 ### docs
-* Your presentation, 1071_datascience_FP_<yourID|groupName>.ppt/pptx/pdf, by **Jan. 15**
+  - Powerpoint Presentation
   - Documentation for the variables of our dataset
 
 ### data
