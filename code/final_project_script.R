@@ -169,7 +169,7 @@ results <- data.frame(AUC = double(), Thresh = double())
 ## ------------------------------------------------------------------------
 if(skip == 0){
 
-tune_svm <- tune.svm(f, data = train, kernel = "radial", scale = FALSE, cost = seq(5,100, by = 10), gamma = seq(0.01, 0.02, by = 0.001))
+tune_svm <- tune.svm(f, data = train, kernel = "radial", scale = FALSE, cost = seq(1,60, by = 10), gamma = seq(0.01, 0.03, by = 0.003))
 
 print(tune_svm)
 
@@ -205,7 +205,7 @@ roc_class <- roc(test$match, preds.per)
 test$preds_score = preds.per
 dual_density <- ggplot(test) + geom_density(aes(x = preds.per, color = match), size = 2) + labs(x = "Prediction Score",
                    y = "Density", color = "Match") +   theme(text = element_text(size=18))
-plot(dual_density)
+#plot(dual_density)
 
 
   #'   

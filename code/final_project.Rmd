@@ -128,7 +128,7 @@ We are using a support Vector Machine to train our data. The best tuning values 
 ```{r}
 
 
-tune_svm <- tune.svm(f, data = train, kernel = "radial", scale = FALSE, cost = seq(5,70, by = 10), gamma = seq(0.01, 0.02, by = 0.001))
+tune_svm <- tune.svm(f, data = train, kernel = "radial", scale = FALSE, cost = seq(1,61, by = 10), gamma = seq(0.01, 0.03, by = 0.003))
 
 print(tune_svm)
 

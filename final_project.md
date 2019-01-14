@@ -130,7 +130,7 @@ results <- data.frame(AUC = double(), Thresh = double())
 We are using a support Vector Machine to train our data. The best tuning values where previously tested using the tune.vsm function. To make sure our results are corrected we will implement a 10-Fold Cross-Validation.
 
 ``` r
-tune_svm <- tune.svm(f, data = train, kernel = "radial", scale = FALSE, cost = seq(5,70, by = 10), gamma = seq(0.01, 0.02, by = 0.001))
+tune_svm <- tune.svm(f, data = train, kernel = "radial", scale = FALSE, cost = seq(1,61, by = 10), gamma = seq(0.01, 0.03, by = 0.003))
 
 print(tune_svm)
 ```
@@ -142,9 +142,9 @@ print(tune_svm)
     ## 
     ## - best parameters:
     ##  gamma cost
-    ##   0.02    5
+    ##   0.01   11
     ## 
-    ## - best performance: 0.1466846
+    ## - best performance: 0.1485914
 
 ``` r
 fit_svm <-  svm(f, data = train, kernel = "radial", scale = FALSE, cost = tune_svm$best.parameters["cost"], gamma = tune_svm$best.parameters["gamma"],  probability = TRUE)
@@ -160,7 +160,7 @@ auc_value <- auc(test$match, preds.per)
 print(auc_value)
 ```
 
-    ## [1] 0.8368093
+    ## [1] 0.8411948
 
 ``` r
 roc_class <- roc(test$match, preds.per)
@@ -203,25 +203,25 @@ print(confusionMatrix(pred_int, test$match, positive = "1"))
     ## 
     ##           Reference
     ## Prediction   0   1
-    ##          0 245  13
-    ##          1  86  49
+    ##          0 244  12
+    ##          1  87  50
     ##                                           
     ##                Accuracy : 0.7481          
     ##                  95% CI : (0.7021, 0.7903)
     ##     No Information Rate : 0.8422          
     ##     P-Value [Acc > NIR] : 1               
     ##                                           
-    ##                   Kappa : 0.3588          
-    ##  Mcnemar's Test P-Value : 4.612e-13       
+    ##                   Kappa : 0.3645          
+    ##  Mcnemar's Test P-Value : 1.028e-13       
     ##                                           
-    ##             Sensitivity : 0.7903          
-    ##             Specificity : 0.7402          
-    ##          Pos Pred Value : 0.3630          
-    ##          Neg Pred Value : 0.9496          
+    ##             Sensitivity : 0.8065          
+    ##             Specificity : 0.7372          
+    ##          Pos Pred Value : 0.3650          
+    ##          Neg Pred Value : 0.9531          
     ##              Prevalence : 0.1578          
-    ##          Detection Rate : 0.1247          
-    ##    Detection Prevalence : 0.3435          
-    ##       Balanced Accuracy : 0.7653          
+    ##          Detection Rate : 0.1272          
+    ##    Detection Prevalence : 0.3486          
+    ##       Balanced Accuracy : 0.7718          
     ##                                           
     ##        'Positive' Class : 1               
     ##
